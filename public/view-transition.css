@@ -1,0 +1,51 @@
+/* View Transition 全局样式 */
+
+/* 页面整体过渡 - 禁用默认动画 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* 产品图片过渡 - 使用简单的淡入淡出 */
+::view-transition-old(product-image-1),
+::view-transition-old(product-image-2),
+::view-transition-old(product-image-3),
+::view-transition-old(product-image-4),
+::view-transition-old(product-image-5),
+::view-transition-old(product-image-6) {
+  animation: slide-out 0.3s ease-in-out;
+}
+
+::view-transition-new(product-image-1),
+::view-transition-new(product-image-2),
+::view-transition-new(product-image-3),
+::view-transition-new(product-image-4),
+::view-transition-new(product-image-5),
+::view-transition-new(product-image-6) {
+  animation: slide-in 0.3s ease-in-out;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
